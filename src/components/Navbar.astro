@@ -1,0 +1,87 @@
+---
+// src/components/Navbar.astro
+---
+<nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" style="background: rgba(13,10,5,0.92); backdrop-filter: blur(18px); border-bottom: 1px solid rgba(251,191,36,0.08);">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 group">
+        <img 
+          src="/image2vector.svg" 
+          alt="eKoneni Lounge" 
+          width="150" 
+          height="150" 
+          class="w-[150px] h-[150px] object-contain drop-shadow-[0_0_12px_rgba(251,191,36,0.35)] group-hover:drop-shadow-[0_0_18px_rgba(251,191,36,0.55)] transition-all duration-300"
+        />
+        <div class="leading-none">
+          <span class="font-display text-xl sm:text-2xl font-bold text-amber-400 tracking-wide group-hover:text-amber-300 transition-colors"></span>
+          <span class="block font-body text-[10px] tracking-[0.25em] text-amber-600 uppercase"></span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/"         class="nav-link font-body text-sm font-medium text-gray-300">Home</a>
+        <a href="/about"    class="nav-link font-body text-sm font-medium text-gray-300">About</a>
+        <a href="/events"   class="nav-link font-body text-sm font-medium text-gray-300">Events</a>
+        <a href="/butchery" class="nav-link font-body text-sm font-medium text-gray-300">Butchery</a>
+        <a href="/gallery"  class="nav-link font-body text-sm font-medium text-gray-300">Gallery</a>
+        <a href="/community" class="nav-link font-body text-sm font-medium text-gray-300">Community</a>
+        <a href="/reviews"  class="nav-link font-body text-sm font-medium text-gray-300">Reviews</a>
+        <a href="/lost-found" class="nav-link font-body text-sm font-medium text-gray-300">Lost & Found</a>
+      </div>
+
+      <!-- Orange CTA + Mobile Toggle -->
+      <div class="flex items-center gap-3">
+        <a href="/contact" class="hidden sm:inline-flex btn-gold px-5 py-2.5 rounded-full text-sm font-body">
+          Contact Us
+        </a>
+        <!-- Hamburger -->
+        <button id="menu-btn" onclick="toggleMenu()" class="md:hidden flex flex-col justify-center items-center w-9 h-9 gap-1.5 focus:outline-none">
+          <span class="block w-6 h-0.5 bg-amber-400 transition-all duration-300" id="bar1"></span>
+          <span class="block w-5 h-0.5 bg-amber-400 transition-all duration-300" id="bar2"></span>
+          <span class="block w-6 h-0.5 bg-amber-400 transition-all duration-300" id="bar3"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" style="background: rgba(13,10,5,0.97); border-top: 1px solid rgba(251,191,36,0.10);">
+    <div class="px-6 py-6 flex flex-col gap-5">
+      <a href="/"         onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Home</a>
+      <a href="/about"    onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">About</a>
+      <a href="/events"   onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Events</a>
+      <a href="/butchery" onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Butchery</a>
+      <a href="/gallery"  onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Gallery</a>
+      <a href="/community" onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Community</a>
+      <a href="/reviews"  onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Reviews</a>
+      <a href="/lost-found" onclick="toggleMenu()" class="font-body text-gray-300 hover:text-amber-400 transition-colors py-1.5">Lost & Found</a>
+      <a href="/contact"  onclick="toggleMenu()" class="btn-gold px-5 py-3 rounded-full text-sm text-center font-body mt-1">Contact Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hide on scroll down, show on scroll up -->
+<script>
+  let lastScrollY = window.scrollY;
+  const navbar = document.getElementById('navbar');
+
+  window.addEventListener('scroll', () => {
+    const currentScrollY = window.scrollY;
+
+    if (currentScrollY <= 10) {
+      // At the very top — always show
+      navbar.style.transform = 'translateY(0)';
+    } else if (currentScrollY < lastScrollY) {
+      // Scrolling UP — show navbar
+      navbar.style.transform = 'translateY(0)';
+    } else {
+      // Scrolling DOWN — hide navbar
+      navbar.style.transform = 'translateY(-100%)';
+    }
+
+    lastScrollY = currentScrollY;
+  });
+</script>

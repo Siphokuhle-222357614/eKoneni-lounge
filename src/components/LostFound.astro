@@ -1,0 +1,206 @@
+---
+// src/components/LostFound.astro
+---
+<section id="lost-found" class="section-dark py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+
+    <!-- Heading -->
+    <div class="text-center mb-14">
+      <div class="flex items-center justify-center gap-3 mb-5">
+        <span class="w-8 h-px bg-amber-400/40"></span>
+        <span class="font-body text-amber-500 text-xs tracking-[0.25em] uppercase">Lost Something?</span>
+        <span class="w-8 h-px bg-amber-400/40"></span>
+      </div>
+      <span class="gold-line mx-auto"></span>
+      <h2 class="section-heading text-4xl sm:text-5xl text-white">Lost & <span class="text-amber-400">Found</span></h2>
+      <p class="font-body text-gray-500 mt-4 max-w-lg mx-auto text-sm sm:text-base">
+        We know how important your belongings are. Let us help you get them back.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 mb-16">
+      <!-- Left: Report Lost Item Form -->
+      <div>
+        <div class="contact-card rounded-2xl p-7 h-full">
+          <h3 class="font-display text-2xl text-white font-bold mb-6 flex items-center gap-3">
+            <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            I Lost an Item
+          </h3>
+          <form id="lost-form" class="space-y-5">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input type="text" placeholder="Your Name *" required class="bg-night-800 border border-amber-400/20 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-400/50 w-full" />
+              <input type="tel" placeholder="Phone Number *" required class="bg-night-800 border border-amber-400/20 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-400/50 w-full" />
+            </div>
+            <input type="email" placeholder="Email Address" class="bg-night-800 border border-amber-400/20 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-400/50 w-full" />
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <input type="date" required class="bg-night-800 border border-amber-400/20 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-400/50 w-full" />
+              <input type="text" placeholder="Where did you lose it? *" required class="bg-night-800 border border-amber-400/20 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-400/50 w-full" />
+            </div>
+            <textarea placeholder="Description of the lost item (colour, brand, size, etc.) *" rows="3" required class="bg-night-800 border border-amber-400/20 rounded-lg px-4 py-2.5 text-gray-200 placeholder-gray-500 focus:outline-none focus:border-amber-400/50 w-full"></textarea>
+            <button type="submit" class="btn-gold px-6 py-3 rounded-xl font-body text-sm tracking-wide w-full">Submit Report</button>
+          </form>
+          <p class="text-xs text-gray-600 mt-4">Your information is secure. We'll contact you if your item is found.</p>
+        </div>
+      </div>
+
+      <!-- Right: Found Something? Instructions -->
+      <div class="contact-card rounded-2xl p-7">
+        <h3 class="font-display text-2xl text-white font-bold mb-6 flex items-center gap-3">
+          <svg class="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" /></svg>
+          I Found an Item
+        </h3>
+        <div class="space-y-4 text-gray-300 font-body text-sm leading-relaxed">
+          <p>Thank you for being honest! Please follow these simple steps:</p>
+          <div class="space-y-3 pl-1">
+            <div class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold mt-0.5">1</span>
+              <p><strong class="text-amber-200">Don't leave it unattended.</strong> Secure the item immediately.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold mt-0.5">2</span>
+              <p><strong class="text-amber-200">Hand it to a staff member</strong> at the bar, reception, or security desk.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold mt-0.5">3</span>
+              <p>If you can’t find a staff member, <strong class="text-amber-200">call or WhatsApp us</strong>: <a href="tel:+27432000000" class="text-amber-400 hover:underline">+27 43 200 0000</a></p>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="flex items-center justify-center w-6 h-6 rounded-full bg-amber-400/10 border border-amber-400/20 text-amber-400 text-xs font-bold mt-0.5">4</span>
+              <p><strong class="text-amber-200">Fill out a "Found Item" form</strong> (available at the lounge) with the date, time, and location.</p>
+            </div>
+          </div>
+          <p class="text-xs text-gray-500 mt-4">All found items are kept safely for 30 days.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional info: Claiming process -->
+    <div class="contact-card rounded-2xl p-7 max-w-3xl mx-auto mb-16">
+      <h3 class="font-display text-2xl text-white font-bold mb-6">How to Claim Your Property</h3>
+      <div class="space-y-4 text-gray-300 font-body text-sm">
+        <div class="flex items-start gap-3">
+          <span class="text-amber-400 text-lg">✓</span>
+          <p>Visit the lounge with a <strong class="text-amber-200">valid ID</strong> (ID book, driver's licence, or passport).</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-amber-400 text-lg">✓</span>
+          <p>Describe the item accurately or show a photo of it (if you have one).</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-amber-400 text-lg">✓</span>
+          <p>You may be asked to sign a receipt confirming collection.</p>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="text-amber-400 text-lg">✓</span>
+          <p>If you cannot collect in person, a trusted person can do so with <strong class="text-amber-200">written authorisation</strong> and a copy of your ID.</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-500 mt-6">For privacy, items containing personal data (phones, wallets) may require additional verification.</p>
+    </div>
+
+    <!-- Recently Reported Lost Items (clickable cards) -->
+    <div>
+      <h3 class="font-display text-2xl text-white font-bold mb-8 text-center">Recently Reported Lost Items</h3>
+      <div id="lost-items-list" class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <!-- Populated by JS -->
+      </div>
+      <p class="text-center text-xs text-gray-600 mt-6">
+        If you recognise an item, please <a href="/contact" class="text-amber-400 hover:underline">contact us</a> with the item description.
+      </p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Helper to build the correct URL (remove any accidental "public/" prefix and encode spaces)
+  function imageUrl(path) {
+    return '/' + path.replace(/^public\//, '').replace(/ /g, '%20');
+  }
+
+  // Hardcoded lost items – using your images from public/images/Lost and Found/
+  const lostItems = [
+    {
+      id: 1,
+      item: "Black iPhone 15",
+      description: "Black silicone case, cracked screen protector. Lock screen shows a family photo.",
+      location: "Near the DJ booth",
+      dateLost: "2025-07-12",
+      contact: "072 123 4567",
+      mainImage: "images/Lost and Found/Black iPhone 15.jpg",
+      additionalImages: [
+        "images/Lost and Found/Black iPhone 15.jpg",
+        "images/Lost and Found/Black iPhone 15.jpg"
+      ]
+    },
+    {
+      id: 2,
+      item: "Silver watch (Fossil)",
+      description: "Silver metal band, blue dial, slightly scratched. Engraving on the back: 'For my love'.",
+      location: "Men's bathroom sink",
+      dateLost: "2025-07-11",
+      contact: "081 987 6543",
+      mainImage: "images/Lost and Found/Silver fossil watch.jpg",
+      additionalImages: [
+        "images/Lost and Found/Silver fossil watch.jpg"
+      ]
+    },
+    {
+      id: 3,
+      item: "House keys on a Springbok keychain",
+      description: "Two silver keys, one gold key, Springbok rugby keychain. Fob with red tag.",
+      location: "VIP section, table 4",
+      dateLost: "2025-07-10",
+      contact: "083 456 7890",
+      mainImage: "images/Lost and Found/House keys.jpg",
+      additionalImages: []
+    },
+    {
+      id: 4,
+      item: "Brown leather wallet",
+      description: "Contains ID, bank card, no cash. ID name: Thabo M.",
+      location: "Bar area",
+      dateLost: "2025-07-09",
+      contact: "076 321 9087",
+      mainImage: "images/Lost and Found/Brown leather wallet.jpg",
+      additionalImages: [
+        "images/Lost and Found/Brown leather wallet.jpg",
+        "images/Lost and Found/Brown leather wallet.jpg",
+        "images/Lost and Found/Brown leather wallet.jpg"
+      ]
+    }
+  ];
+
+  // Prevent form submission (static demo)
+  document.getElementById('lost-form').addEventListener('submit', (e) => {
+    e.preventDefault();
+    alert('Thank you! Your lost item report has been submitted. We will contact you if it’s found. (Demo)');
+  });
+
+  // Build clickable cards
+  const listContainer = document.getElementById('lost-items-list');
+
+  lostItems.forEach(item => {
+    const card = document.createElement('a');
+    card.href = `/lost-items/${item.id}`;
+    card.className = "event-card card-lift rounded-2xl overflow-hidden flex flex-col cursor-pointer";
+
+    const imgSrc = imageUrl(item.mainImage);
+
+    card.innerHTML = `
+      <img src="${imgSrc}" alt="${item.item}" class="w-full h-48 object-cover" />
+      <div class="p-6 flex flex-col flex-1">
+        <div class="flex justify-between items-start mb-3">
+          <h4 class="font-display text-lg text-white font-bold">${item.item}</h4>
+          <span class="text-xs text-amber-400/70 font-body uppercase tracking-wider">${item.dateLost}</span>
+        </div>
+        <p class="text-gray-400 text-sm mb-2 flex-1"><strong class="text-amber-200/80">Description:</strong> ${item.description}</p>
+        <p class="text-gray-400 text-sm mb-4"><strong class="text-amber-200/80">Last seen:</strong> ${item.location}</p>
+        <div class="flex justify-between items-center text-xs mt-auto">
+          <span class="text-gray-500">If found, contact: ${item.contact}</span>
+          <span class="text-amber-400">📞 Call</span>
+        </div>
+      </div>
+    `;
+    listContainer.appendChild(card);
+  });
+</script>

@@ -1,0 +1,92 @@
+---
+// src/components/About.astro
+---
+<section id="about" class="section-dark py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+
+    <!-- Label -->
+    <div class="flex items-center gap-3 mb-14">
+      <span class="w-8 h-px bg-amber-400/40"></span>
+      <span class="font-body text-amber-500 text-xs tracking-[0.25em] uppercase">Our Story</span>
+      <span class="w-8 h-px bg-amber-400/40"></span>
+    </div>
+
+    <!-- Main grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+      <div>
+        <span class="gold-line"></span>
+        <h2 class="section-heading text-4xl sm:text-5xl text-white leading-tight mb-8">
+          More Than a Lounge.<br/>
+          <span class="text-amber-400">A Way of Life.</span>
+        </h2>
+        <p class="font-body text-gray-400 text-base sm:text-lg leading-relaxed mb-6">
+          Born in 2019 from the heartbeat of Mdantsane — one of the largest townships in South Africa — eKoneni Lounge was built on a simple belief: that premium experiences belong here too. We brought the spirit of the streets inside: the log drums, the piano melodies, the voices of home. <span class="text-amber-200/80">Amapiano ayisimbo sethu</span> — amapiano is our culture — and we live it every single night.
+        </p>
+        <p class="font-body text-gray-400 text-base sm:text-lg leading-relaxed mb-6">
+          What started as a lounge quickly became something bigger — a space where Mdantsane comes to celebrate, to grieve, to connect, and to feel seen. Award-winning DJs on the decks every weekend, a cocktail menu inspired by the flavours of the Eastern Cape, bottle service that rivals Sandton's finest, and a crowd that knows exactly how to move.
+        </p>
+        <p class="font-body text-gray-400 text-base sm:text-lg leading-relaxed mb-10">
+          Whether you're here for a birthday, a date, or just because the night called your name — <span class="text-amber-200/80">eKoneni uyakwamkela</span> — you are welcome here.
+        </p>
+
+        <!-- Feature pills -->
+        <div class="flex flex-wrap gap-3 mb-10">
+          <span class="px-4 py-1.5 rounded-full border border-amber-400/20 bg-amber-400/5 font-body text-amber-300/80 text-xs tracking-wide">Live Amapiano DJs</span>
+          <span class="px-4 py-1.5 rounded-full border border-amber-400/20 bg-amber-400/5 font-body text-amber-300/80 text-xs tracking-wide">Premium Cocktails</span>
+          <span class="px-4 py-1.5 rounded-full border border-amber-400/20 bg-amber-400/5 font-body text-amber-300/80 text-xs tracking-wide">Private Bookings</span>
+          <span class="px-4 py-1.5 rounded-full border border-amber-400/20 bg-amber-400/5 font-body text-amber-300/80 text-xs tracking-wide">Est. 2019</span>
+        </div>
+
+        <!-- Stats row -->
+        <div class="grid grid-cols-3 gap-6 pt-8 border-t border-amber-400/10">
+          <div>
+            <p class="font-display text-3xl font-bold text-amber-400">6+</p>
+            <p class="font-body text-gray-500 text-xs mt-1 tracking-wide uppercase">Years Running</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-bold text-amber-400">100s</p>
+            <p class="font-body text-gray-500 text-xs mt-1 tracking-wide uppercase">Nights Hosted</p>
+          </div>
+          <div>
+            <p class="font-display text-3xl font-bold text-amber-400">1</p>
+            <p class="font-body text-gray-500 text-xs mt-1 tracking-wide uppercase">Community. Always.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image -->
+      <div class="relative">
+        <div class="about-img rounded-2xl w-full aspect-[4/5] flex items-center justify-center overflow-hidden relative">
+          <img 
+            src="/images/lounge/Lounge-image.jpg" 
+            alt="eKoneni Lounge interior" 
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+          <div class="absolute inset-4 rounded-xl border border-amber-400/8 pointer-events-none z-10"></div>
+          <div class="absolute inset-8 rounded-lg border border-amber-400/5 pointer-events-none z-10"></div>
+        </div>
+        <div class="absolute -bottom-4 -right-4 w-24 h-24 rounded-xl border-b-2 border-r-2 border-amber-400/25 pointer-events-none"></div>
+        <div class="absolute -top-4 -left-4 w-16 h-16 rounded-tl-xl border-t-2 border-l-2 border-amber-400/15 pointer-events-none"></div>
+      </div>
+    </div>
+
+    <!-- Community teaser strip -->
+    <div class="rounded-2xl border border-amber-400/10 bg-gradient-to-r from-amber-400/5 to-transparent p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-10">
+      <div class="flex-shrink-0 w-12 h-12 rounded-full bg-amber-400/10 flex items-center justify-center">
+        <svg class="w-6 h-6 text-amber-400" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a4 4 0 00-5-4M9 20H4v-2a4 4 0 015-4m0 0a4 4 0 108 0 4 4 0 01-8 0zM12 12a4 4 0 100-8 4 4 0 000 8z"/>
+        </svg>
+      </div>
+      <div class="flex-1">
+        <h3 class="font-display text-xl text-white font-bold mb-2">Siyakhathalela — We Care.</h3>
+        <p class="font-body text-gray-400 text-sm leading-relaxed">
+          eKoneni is more than a business. From feeding children in Mdantsane to rebuilding homes for families in need — the owner believes that a thriving community is the foundation of everything. This is what sets eKoneni apart.
+        </p>
+      </div>
+      <a href="/community" class="flex-shrink-0 btn-outline px-5 py-2.5 rounded-full font-body text-sm whitespace-nowrap">
+        See Our Work →
+      </a>
+    </div>
+
+  </div>
+</section>

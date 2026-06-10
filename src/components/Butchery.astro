@@ -1,0 +1,98 @@
+---
+// src/components/Butchery.astro
+---
+<section id="butchery" class="section-dark py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+
+    <div class="text-center mb-14">
+      <div class="flex items-center justify-center gap-3 mb-5">
+        <span class="w-8 h-px bg-amber-400/40"></span>
+        <span class="font-body text-amber-500 text-xs tracking-[0.25em] uppercase">Premium Cuts</span>
+        <span class="w-8 h-px bg-amber-400/40"></span>
+      </div>
+      <span class="gold-line mx-auto"></span>
+      <h2 class="section-heading text-4xl sm:text-5xl text-white">The <span class="text-amber-400">Butchery</span></h2>
+      <p class="font-body text-gray-500 mt-4 max-w-lg mx-auto text-sm sm:text-base">
+        Fresh, quality meats sourced locally. From everyday braai packs to premium cuts.
+      </p>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <button class="filter-btn active px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/10 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="all">All</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="beef">Beef</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="chicken">Chicken</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="pork">Pork</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="combo">Combos</button>
+      <button class="filter-btn px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="promo">Promotions</button>
+    </div>
+
+    <!-- Products Grid -->
+    <div id="products-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- JS will populate -->
+    </div>
+  </div>
+</section>
+
+<script>
+  // Product data – image paths relative to public/ (e.g., "images/butchery/Ramp steak.jpg")
+  const products = [
+    { name: "Rump Steak", category: "beef", price: "R120/kg", desc: "Tender, well-marbled.", image: "images/butchery/Ramp steak.jpg", badge: "" },
+    { name: "T-Bone Steak", category: "beef", price: "R145/kg", desc: "Classic braai favourite.", image: "images/butchery/T-bone steak.jpg", badge: "" },
+    { name: "Beef Mince", category: "beef", price: "R85/kg", desc: "Lean, perfect for patties.", image: "images/butchery/Beef mince.jpg", badge: "" },
+    { name: "Whole Chicken", category: "chicken", price: "R75 each", desc: "Fresh, free-range.", image: "images/butchery/Whole chicken.jpg", badge: "" },
+    { name: "Chicken Wings", category: "chicken", price: "R65/kg", desc: "Marinated in house sauce.", image: "images/butchery/Chicken wings.jpg", badge: "Bestseller" },
+    { name: "Pork Rashers", category: "pork", price: "R95/kg", desc: "Thick cut, smoky flavour.", image: "images/butchery/Pork rashers.jpg", badge: "" },
+    { name: "Pork Chops", category: "pork", price: "R90/kg", desc: "Juicy and tender.", image: "images/butchery/Pork chops.jpg", badge: "" },
+    { name: "Braai Combo", category: "combo", price: "R350", desc: "2kg beef, 1kg chicken, wors, 6 rolls.", image: "images/butchery/Braai combo.png", badge: "Value" },
+    { name: "Family Feast", category: "combo", price: "R550", desc: "3kg mixed meat, salads, sauces.", image: "images/butchery/Family feast.png", badge: "Popular" },
+    { name: "Weekend Special", category: "promo", price: "R200", desc: "1kg rump + 1kg wors, free delivery.", image: "images/butchery/Family feast.png", badge: "Promo" },
+    { name: "Student Pack", category: "promo", price: "R150", desc: "1kg chicken, 500g mince, rolls.", image: "images/butchery/Braai combo.png", badge: "Limited" }
+  ];
+
+  const grid = document.getElementById('products-grid');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  function renderProducts(filter = 'all') {
+    grid.innerHTML = '';
+    const filtered = filter === 'all' ? products : products.filter(p => p.category === filter);
+    filtered.forEach(item => {
+      // Encode spaces and special characters
+      const imgSrc = '/' + item.image.replace(/ /g, '%20');
+      const card = document.createElement('div');
+      card.className = "event-card card-lift rounded-2xl overflow-hidden flex flex-col";
+      card.innerHTML = `
+        <img src="${imgSrc}" alt="${item.name}" class="w-full h-48 object-cover" />
+        <div class="p-6 flex flex-col flex-1">
+          <div class="flex items-start justify-between mb-3">
+            <h3 class="font-display text-xl text-white font-bold">${item.name}</h3>
+            ${item.badge ? `<span class="px-2 py-0.5 text-xs rounded-full bg-amber-400/20 text-amber-300 border border-amber-400/20">${item.badge}</span>` : ''}
+          </div>
+          <p class="font-body text-gray-500 text-sm mb-4 flex-1">${item.desc}</p>
+          <div class="flex justify-between items-center mt-auto">
+            <span class="font-display text-2xl text-amber-400">${item.price}</span>
+            <span class="text-xs font-body text-amber-400/70 uppercase tracking-widest">${item.category}</span>
+          </div>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  }
+
+  // Initial render
+  renderProducts();
+
+  // Filter button events
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => {
+        b.classList.remove('active', 'bg-amber-400/10');
+        b.classList.add('bg-amber-400/5');
+      });
+      btn.classList.add('active', 'bg-amber-400/10');
+      btn.classList.remove('bg-amber-400/5');
+      const filter = btn.getAttribute('data-filter');
+      renderProducts(filter);
+    });
+  });
+</script>

@@ -1,0 +1,23 @@
+---
+export interface Props {
+  label: string;
+  heading: string;
+  highlight?: string; // portion wrapped in text-amber-400
+  description?: string;
+}
+const { label, heading, highlight, description } = Astro.props;
+---
+<div class="text-center mb-14">
+  <div class="flex items-center justify-center gap-3 mb-5">
+    <span class="w-8 h-px bg-amber-400/40"></span>
+    <span class="font-body text-amber-500 text-xs tracking-[0.25em] uppercase">{label}</span>
+    <span class="w-8 h-px bg-amber-400/40"></span>
+  </div>
+  <GoldLine />
+  <h2 class="section-heading text-4xl sm:text-5xl text-white">
+    {heading.split(highlight || '').map((part, i) => (
+      i === 1 ? <span class="text-amber-400">{part}</span> : part
+    ))}
+  </h2>
+  {description && <p class="font-body text-gray-500 mt-4 max-w-lg mx-auto text-sm sm:text-base">{description}</p>}
+</div>

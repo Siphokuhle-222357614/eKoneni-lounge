@@ -1,0 +1,235 @@
+---
+// src/components/Events.astro
+---
+
+<section id="events" class="section-mid py-20 sm:py-28">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
+    <div class="text-center mb-14">
+      <div class="flex items-center justify-center gap-3 mb-5">
+        <span class="w-8 h-px bg-amber-400/40"></span>
+        <span
+          class="font-body text-amber-500 text-xs tracking-[0.25em] uppercase"
+          >Upcoming Nights</span
+        >
+        <span class="w-8 h-px bg-amber-400/40"></span>
+      </div>
+      <span class="gold-line mx-auto"></span>
+      <h2 class="section-heading text-4xl sm:text-5xl text-white">
+        Mark Your <span class="text-amber-400">Calendar</span>
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+      <!-- Event 1 -->
+      <div
+        class="event-card card-lift rounded-2xl overflow-hidden flex flex-col"
+      >
+        <div class="h-2 bg-gradient-to-r from-amber-400 to-amber-600"></div>
+        <img
+          src="/images/lounge/Fishbraai-thursday(celebrity).jpg"
+          alt="Fishbraai Thursday flyer"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-2xl text-white font-bold mb-1">
+            Fishbraai Thursday
+          </h3>
+          <p class="font-body text-amber-300/70 text-sm mb-4 flex-1">
+            The homecoming session — deep log drum, smooth amapiano and pure
+            township soul.
+          </p>
+          <div class="space-y-2">
+            <a
+              href="https://wa.me/27432000000?text=Sawubona!%20I'd%20like%20to%20book%20for%20Fishbraai%20Thursday%20on%2011%20July."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-amber-400/20 bg-amber-400/5 font-body text-amber-300 text-sm hover:bg-amber-400/10 hover:border-amber-400/40 transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                ></path>
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.523 5.843L.057 23.882l6.198-1.427A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.893a9.865 9.865 0 01-5.031-1.378l-.36-.214-3.732.859.882-3.634-.235-.374A9.861 9.861 0 012.107 12C2.107 6.58 6.58 2.107 12 2.107S21.893 6.58 21.893 12 17.42 21.893 12 21.893z"
+                ></path>
+              </svg>
+              Book via WhatsApp
+            </a>
+            <div
+              class="flex items-center gap-2 text-gray-300 text-sm font-body"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-amber-500/60"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path></svg
+              >
+              Friday, 11 July 2025 · 21:00 – 04:00
+            </div>
+            <div
+              class="flex items-center gap-2 text-gray-300 text-sm font-body"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-amber-500/60"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 005 16h10a6 6 0 00-.954-3.266A5 5 0 0010 11z"
+                  clip-rule="evenodd"></path></svg
+              >
+              Murumba Pitch
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 2 — Featured -->
+      <div
+        class="event-card card-lift rounded-2xl overflow-hidden flex flex-col relative"
+        style="border-color: rgba(251,191,36,0.28); box-shadow: 0 0 60px rgba(251,191,36,0.08);"
+      >
+        <div
+          class="h-2 bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500"
+        >
+        </div>
+        <img
+          src="/images/lounge/Bad-Decision-Tracy-and-Thatohatsi.jpg"
+          alt="Bad Decision flyer"
+          class="w-full h-56 object-cover"
+        />
+        <div class="absolute top-4 right-4 z-10">
+          <span
+            class="px-3 py-1 bg-amber-400 rounded-full font-body text-black text-xs font-semibold tracking-wide"
+            >✦ Featured</span
+          >
+        </div>
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-2xl text-white font-bold mb-1">
+            Bad Decision
+          </h3>
+          <p class="font-body text-amber-300/70 text-sm mb-4 flex-1">
+            The grandest amapiano spectacle in the Eastern Cape returns. One
+            night, One spectacular artist.
+          </p>
+          <div class="space-y-2">
+            <a
+              href="https://wa.me/27432000000?text=Sawubona!%20I'd%20like%20to%20book%20for%20Bad%20Decision%20on%2011%20July."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-amber-400/20 bg-amber-400/5 font-body text-amber-300 text-sm hover:bg-amber-400/10 hover:border-amber-400/40 transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                ></path>
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.523 5.843L.057 23.882l6.198-1.427A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.893a9.865 9.865 0 01-5.031-1.378l-.36-.214-3.732.859.882-3.634-.235-.374A9.861 9.861 0 012.107 12C2.107 6.58 6.58 2.107 12 2.107S21.893 6.58 21.893 12 17.42 21.893 12 21.893z"
+                ></path>
+              </svg>
+              Book via WhatsApp
+            </a>
+            <div
+              class="flex items-center gap-2 text-gray-300 text-sm font-body"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-amber-500/60"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path></svg
+              >
+              Saturday, 19 July 2025 · 20:00 – 05:00
+            </div>
+            <div
+              class="flex items-center gap-2 text-gray-300 text-sm font-body"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-amber-500/60"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 005 16h10a6 6 0 00-.954-3.266A5 5 0 0010 11z"
+                  clip-rule="evenodd"></path></svg
+              >
+              4 Headline DJs · Surprise Guest
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Event 3 -->
+      <div
+        class="event-card card-lift rounded-2xl overflow-hidden flex flex-col"
+      >
+        <div class="h-2 bg-gradient-to-r from-amber-600 to-amber-400"></div>
+        <img
+          src="/images/lounge/Maloya-night.jpg"
+          alt="Maloya Night flyer"
+          class="w-full h-56 object-cover"
+        />
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-display text-2xl text-white font-bold mb-1">
+            Maloya Night
+          </h3>
+          <p class="font-body text-amber-300/70 text-sm mb-4 flex-1">
+            End the week in fire — day-to-night amapiano, braai specials and
+            sundowner cocktails.
+          </p>
+          <div class="space-y-2">
+            <a
+              href="https://wa.me/27432000000?text=Sawubona!%20I'd%20like%20to%20book%20for%20Maloya%20Night%20on%2027%20July."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="mt-5 flex items-center justify-center gap-2 w-full py-2.5 rounded-xl border border-amber-400/20 bg-amber-400/5 font-body text-amber-300 text-sm hover:bg-amber-400/10 hover:border-amber-400/40 transition-all duration-200"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"
+                ></path>
+                <path
+                  d="M12 0C5.373 0 0 5.373 0 12c0 2.123.555 4.116 1.523 5.843L.057 23.882l6.198-1.427A11.944 11.944 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.893a9.865 9.865 0 01-5.031-1.378l-.36-.214-3.732.859.882-3.634-.235-.374A9.861 9.861 0 012.107 12C2.107 6.58 6.58 2.107 12 2.107S21.893 6.58 21.893 12 17.42 21.893 12 21.893z"
+                ></path>
+              </svg>
+              Book via WhatsApp
+            </a>
+            <div
+              class="flex items-center gap-2 text-gray-300 text-sm font-body"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-amber-500/60"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+                  clip-rule="evenodd"></path></svg
+              >
+              Sunday, 27 July 2025 · 14:00 – 22:00
+            </div>
+            <div
+              class="flex items-center gap-2 text-gray-300 text-sm font-body"
+            >
+              <svg
+                class="w-3.5 h-3.5 text-amber-500/60"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                ><path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-6-3a2 2 0 11-4 0 2 2 0 014 0zm-2 4a5 5 0 00-4.546 2.916A5.986 5.986 0 005 16h10a6 6 0 00-.954-3.266A5 5 0 0010 11z"
+                  clip-rule="evenodd"></path></svg
+              >
+              DJ Zakes · DJ Nomvula
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
