@@ -8,10 +8,5 @@
     X-Frame-Options = "DENY"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
     X-XSS-Protection = "1; mode=block"
-
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
