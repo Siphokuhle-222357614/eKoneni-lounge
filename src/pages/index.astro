@@ -1,16 +1,35 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
+// Sections (arranged for better flow)
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
+import Community from '../components/Community.astro';
 import Events from '../components/Events.astro';
-import CommunityHome from '../components/CommunityHome.astro';
 import Gallery from '../components/Gallery.astro';
+import Reviews from '../components/Reviews.astro';
 import Contact from '../components/Contact.astro';
 ---
+
 <MainLayout title="Home">
+  <!-- 1. Hero -->
   <Hero />
+
+  <!-- 2. About -->
   <About />
+
+  <!-- 3. Community (moved up - strong emotional hook) -->
+  <Community />
+
+  <!-- 4. Events -->
   <Events />
+
+  <!-- 5. Gallery -->
   <Gallery />
+
+  <!-- 6. Reviews (moved down - social proof before contact) -->
+  <Reviews />
+
+  <!-- 7. Contact -->
   <Contact />
 </MainLayout>

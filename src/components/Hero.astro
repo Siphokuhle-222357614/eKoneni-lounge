@@ -2,10 +2,12 @@
 // src/components/Hero.astro
 ---
 
-<section id="home" class="relative overflow-hidden rounded-4xl mb-12
-                           sm:h-screen sm:flex sm:items-center sm:justify-center">
-
-  <!-- Mobile video (small + big phones, hidden on sm+) -->
+<section
+  id="home"
+  class="relative overflow-hidden rounded-4xl mb-12
+         sm:h-screen sm:flex sm:items-center sm:justify-center"
+>
+  <!-- Mobile Video -->
   <div class="block sm:hidden w-full aspect-video">
     <video
       src="/video/eKoneni-Lounge-Background-video.mp4"
@@ -13,129 +15,71 @@
       muted
       loop
       playsinline
-      poster="/images/hero-fallback.jpg"
+      preload="metadata"
       class="w-full h-full object-cover"
     ></video>
   </div>
 
-  <!-- Desktop/tablet background video (sm and up) -->
+  <!-- Desktop Video -->
   <video
     src="/video/eKoneni-Lounge-Background-video.mp4"
     autoplay
     muted
     loop
     playsinline
-    poster="/images/hero-fallback.jpg"
+    preload="metadata"
     class="hidden sm:block absolute inset-0 w-full h-full object-cover z-0"
+    fetchpriority="high"
   ></video>
 
-  <!-- Dark overlay (sm and up only) -->
+  <!-- Dark overlay -->
   <div class="hidden sm:block absolute inset-0 bg-black/60 z-[1]"></div>
 
-  <!-- Content block -->
-  <div class="relative z-10 max-w-4xl mx-auto text-center px-5
-              bg-black/80 sm:bg-transparent
-              py-6 xs:py-10 sm:py-0">
-
-    <!-- Brand name: small on tiny phones, bigger on big phones, large on desktop -->
-    <h1 class="font-display font-bold text-white
-               text-2xl xs:text-3xl sm:text-5xl md:text-7xl
-               mb-3 xs:mb-4 sm:mb-6">
+  <!-- Content -->
+  <div class="relative z-10 max-w-4xl mx-auto text-center px-5">
+    
+    <!-- Brand -->
+    <h1 class="font-display font-bold text-white text-4xl xs:text-5xl sm:text-6xl md:text-6xl mb-3">
       eKoneni Lounge
     </h1>
 
     <!-- Location tag -->
-    <div class="hero-tag inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/5
-                px-2.5 py-0.5 xs:px-3 xs:py-1 sm:px-4 sm:py-1.5
-                mb-4 xs:mb-5 sm:mb-7">
+    <div class="hero-tag inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/5 
+                px-3 py-1 mb-5">
       <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-      <span class="font-body text-amber-300/90 tracking-[0.2em] uppercase
-                   text-[8px] xs:text-[10px] sm:text-xs">
+      <span class="font-body text-amber-300/90 tracking-[0.2em] uppercase text-xs">
         Mdantsane · East London · Est. 2019
       </span>
     </div>
 
-    <!-- Main headline -->
-    <h2 class="hero-h1 font-display font-black text-white leading-none
-               mb-3 xs:mb-4 sm:mb-6">
-      <span class="block text-3xl xs:text-4xl sm:text-7xl lg:text-8xl">Where Mdantsane</span>
-      <span class="block text-3xl xs:text-4xl sm:text-7xl lg:text-8xl text-amber-400"
-            style="text-shadow: 0 0 80px rgba(251,191,36,0.4);">Grooves.</span>
+    <!-- Headline -->
+    <h2 class="font-display font-black text-white leading-none mb-5">
+      <span class="block text-4xl xs:text-5xl sm:text-6xl md:text-6xl lg:text-6xl">
+        Where Mdantsane
+      </span>
+      <span class="block text-4xl xs:text-5xl sm:text-6xl md:text-6xl lg:text-6xl text-amber-400"
+            style="text-shadow: 0 0 80px rgba(251,191,36,0.4);">
+        Truly Comes Alive.
+      </span>
     </h2>
 
     <!-- Subheadline -->
-    <p class="hero-sub font-body text-gray-300 max-w-2xl mx-auto leading-relaxed
-              text-xs xs:text-sm sm:text-xl
-              mb-5 xs:mb-6 sm:mb-10">
-      Every Friday &amp; Saturday night — the finest amapiano, premium cocktails, and a township spirit you won't find anywhere else.
-      <span class="text-amber-200/80">Siyakhulisa iCulture.</span>
+    <p class="hero-sub font-body text-gray-300 max-w-2xl mx-auto leading-relaxed 
+              text-base sm:text-xl mb-8">
+      Premium amapiano nights, unforgettable energy, and a community that feels like family. 
+      Every weekend, eKoneni turns Mdantsane into the place to be.
     </p>
 
     <!-- Buttons -->
-    <div class="hero-btns flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
-      <a href="/contact" class="btn-gold rounded-full font-body tracking-wide w-full sm:w-auto
-                                px-5 py-2.5 xs:px-6 xs:py-3 sm:px-8 sm:py-4
-                                text-xs xs:text-sm sm:text-sm">
-        Contact Us
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <a href="#contact" 
+         class="btn-gold rounded-full font-body tracking-wide px-8 py-3.5 text-sm sm:text-base w-full sm:w-auto text-center">
+        Reserve Your Table
       </a>
-      <a href="/events" class="btn-outline rounded-full font-body tracking-wide w-full sm:w-auto
-                               px-5 py-2.5 xs:px-6 xs:py-3 sm:px-8 sm:py-4
-                               text-xs xs:text-sm sm:text-sm">
-        See Events ↓
+      <a href="#events" 
+         class="btn-outline rounded-full font-body tracking-wide px-8 py-3.5 text-sm sm:text-base w-full sm:w-auto text-center">
+        See Upcoming Events
       </a>
     </div>
   </div>
-
-  <!-- Scroll hint (desktop only) -->
-  <div class="hidden sm:flex absolute bottom-10 left-1/2 -translate-x-1/2 flex-col items-center gap-2 opacity-60 z-10">
-    <span class="font-body text-[10px] tracking-[0.2em] text-amber-400/80 uppercase">Scroll</span>
-    <div class="w-px h-10 bg-gradient-to-b from-amber-400/50 to-transparent"></div>
-  </div>
-
 </section>
-
-<style>
-  /* Small phones (< 480px): compact text */
-  @media (max-width: 479px) {
-    .hero-brand   { font-size: 1.375rem; }
-    .hero-h1-main { font-size: 1.75rem; }
-    .hero-sub     { font-size: 0.7rem; }
-    .hero-tag-txt { font-size: 0.5rem; }
-    .hero-content { padding-top: 1rem; padding-bottom: 1.5rem; }
-  }
-
-  /* Big phones (480px – 639px) */
-  @media (min-width: 480px) and (max-width: 639px) {
-    .hero-brand   { font-size: 1.75rem; }
-    .hero-h1-main { font-size: 2.25rem; }
-    .hero-sub     { font-size: 0.8rem; }
-    .hero-tag-txt { font-size: 0.625rem; }
-    .hero-content { padding-top: 1.5rem; padding-bottom: 2rem; }
-  }
-
-  /* Desktop (640px+): smaller to fit 680px height */
-  @media (min-width: 640px) {
-    .hero-brand   { font-size: 1.5rem; }
-    .hero-h1-main { font-size: 2.25rem; }
-    .hero-sub     { font-size: 0.8rem; }
-    .hero-tag-txt { font-size: 0.6rem; }
-  }
-
-  /* Large desktop (1024px+) */
-  @media (min-width: 1024px) {
-    .hero-brand   { font-size: 1.75rem; }
-    .hero-h1-main { font-size: 2.75rem; }
-    .hero-sub     { font-size: 0.85rem; }
-    .hero-tag-txt { font-size: 0.65rem; }
-  }
-
-  @media (min-width: 640px) {
-    #home {
-      width: 100%;
-      max-width: 1536px;
-      height: 680px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-</style>

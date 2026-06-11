@@ -4,6 +4,7 @@
 <section id="gallery" class="section-dark py-20 sm:py-28">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
+    <!-- Header -->
     <div class="text-center mb-14">
       <div class="flex items-center justify-center gap-3 mb-5">
         <span class="w-8 h-px bg-amber-400/40"></span>
@@ -12,7 +13,7 @@
       </div>
       <span class="gold-line mx-auto"></span>
       <h2 class="section-heading text-4xl sm:text-5xl text-white">The <span class="text-amber-400">Gallery</span></h2>
-      <p class="font-body text-gray-500 mt-4 max-w-lg mx-auto text-sm sm:text-base">
+      <p class="font-body text-gray-400 mt-4 max-w-lg mx-auto text-sm sm:text-base">
         Captured moments from eKoneni nights — the energy, the people, the culture.
       </p>
     </div>
@@ -25,15 +26,27 @@
       <button class="filter-btn px-5 py-2 rounded-full border border-amber-400/20 bg-amber-400/5 text-amber-300 text-sm font-medium hover:bg-amber-400/20 transition-colors" data-filter="events">Events</button>
     </div>
 
-    <!-- Gallery Grid -->
-    <div id="gallery-grid" class="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
-      <!-- JS will populate -->
+    <!-- Masonry Gallery Grid -->
+    <div id="gallery-grid" 
+         class="columns-2 md:columns-3 lg:columns-4 gap-4 [column-fill:_balance] space-y-4">
+      <!-- JS will populate masonry items -->
     </div>
   </div>
 </section>
 
+<!-- Lightbox Modal -->
+<div id="lightbox" class="hidden fixed inset-0 bg-black/90 z-[100] flex items-center justify-center p-4">
+  <div class="relative max-w-5xl w-full">
+    <button id="close-lightbox" 
+            class="absolute -top-12 right-0 text-white/70 hover:text-white text-3xl font-light transition-colors z-10">
+      &times;
+    </button>
+    <img id="lightbox-image" class="w-full max-h-[82vh] object-contain rounded-2xl shadow-2xl" alt="">
+    <div id="lightbox-caption" class="mt-4 text-center text-white/80 font-body text-sm tracking-wide"></div>
+  </div>
+</div>
+
 <script>
-  // Gallery images data – replace with your actual image paths
   const galleryImages = [
     { src: "/images/lounge/Bad-Decision-Tracy-and-Thatohatsi.jpg", alt: "Celebrity guest DJ performing", category: ["celebrities", "events"] },
     { src: "/images/lounge/Thatohatsi-celebrity.jpg", alt: "Famous artist at eKoneni", category: ["celebrities", "people"] },
@@ -44,39 +57,66 @@
     { src: "/images/lounge/Gallery2.jpg", alt: "Friends enjoying cocktails", category: ["people", "events"] },
     { src: "/images/lounge/Link-up-Fridays.jpg", alt: "Birthday celebration", category: ["people", "events"] },
     { src: "/images/lounge/Feel-so-good-sunday.jpg", alt: "Couple at the lounge", category: ["people", "events"] },
-    { src: "/images/lounge/Bad-Decision.jpg", alt: "Piano Kings Vol. 4 stage", category: "events" },
-    /*
-    { src: "/images/gallery/event-2.jpg", alt: "Umlilo Sunday setup", category: "events" },
-    { src: "/images/gallery/event-3.jpg", alt: "DJ battle night", category: "events" },
-    { src: "/images/gallery/event-4.jpg", alt: "Live performance", category: "events" },
-    { src: "/images/gallery/bts-1.jpg", alt: "Bartenders preparing drinks", category: "behind-the-scenes" },
-    { src: "/images/gallery/bts-2.jpg", alt: "Kitchen prepping braai", category: "behind-the-scenes" },
-    { src: "/images/gallery/bts-3.jpg", alt: "Staff group photo", category: "behind-the-scenes" },
-     */
+    { src: "/images/lounge/Bad-Decision.jpg", alt: "Piano Kings Vol. 4 stage", category: ["events"] },
   ];
 
   const grid = document.getElementById('gallery-grid');
   const buttons = document.querySelectorAll('.filter-btn');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImage = document.getElementById('lightbox-image');
+  const lightboxCaption = document.getElementById('lightbox-caption');
+  const closeBtn = document.getElementById('close-lightbox');
 
   function renderGallery(filter = 'all') {
     grid.innerHTML = '';
 
-    const filtered = filter === 'all' ? galleryImages : galleryImages.filter(img => img.category.includes(filter));
+    const filtered = filter === 'all' 
+      ? galleryImages 
+      : galleryImages.filter(img => img.category.includes(filter));
+
     filtered.forEach(img => {
-      const box = document.createElement('div');
-      box.className = 'gallery-box rounded-2xl overflow-hidden aspect-square';
-      box.innerHTML = `
-        <img src="${img.src}" alt="${img.alt}" class="w-full h-full object-cover" />
-        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-          <span class="text-white text-xs font-body tracking-wider">${img.alt}</span>
+      const item = document.createElement('div');
+      item.className = 'break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative';
+
+      item.innerHTML = `
+        <img src="${img.src}" alt="${img.alt}" 
+             class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/10 via-black/30 to-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-5">
+          <span class="text-white text-sm font-body tracking-wider">${img.alt}</span>
         </div>
       `;
-      grid.appendChild(box);
+
+      item.addEventListener('click', () => openLightbox(img));
+      grid.appendChild(item);
     });
   }
 
-  renderGallery();
+  function openLightbox(img) {
+    lightboxImage.src = img.src;
+    lightboxCaption.textContent = img.alt;
+    lightbox.classList.remove('hidden');
+    lightbox.classList.add('flex');
+    document.body.style.overflow = 'hidden';
+  }
 
+  function closeLightbox() {
+    lightbox.classList.remove('flex');
+    lightbox.classList.add('hidden');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) closeLightbox();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('hidden')) {
+      closeLightbox();
+    }
+  });
+
+  // Filter buttons
   buttons.forEach(btn => {
     btn.addEventListener('click', () => {
       buttons.forEach(b => {
@@ -85,8 +125,12 @@
       });
       btn.classList.add('active', 'bg-amber-400/10');
       btn.classList.remove('bg-amber-400/5');
+
       const filter = btn.getAttribute('data-filter');
       renderGallery(filter);
     });
   });
+
+  // Initial render
+  renderGallery();
 </script>
