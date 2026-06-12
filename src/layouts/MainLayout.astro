@@ -7,9 +7,10 @@ export interface Props {
   title: string;
   description?: string;
 }
+
 const {
   title,
-  description = "eKoneni Lounge | Amapiano nights, premium cocktails & township soul in Mdantsane, East London",
+  description = "eKoneni Lounge | Premium amapiano nights, cocktails & community vibes in Mdantsane, East London",
 } = Astro.props;
 
 const ogImage = "/images/lounge/hero-fallback.jpg";
@@ -21,6 +22,7 @@ const siteUrl = "https://ekoneni-lounge.netlify.app";
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="index, follow" />
 
     <title>{title} — eKoneni Lounge</title>
     <meta name="description" content={description} />
@@ -31,24 +33,27 @@ const siteUrl = "https://ekoneni-lounge.netlify.app";
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
     <!-- Plausible Analytics -->
-    <script
-      defer
-      src="https://plausible.io/js/pa-0CKmc9UhJ1hfgfhMK6TFC.js?outbound-links=true&404=true"
-    ></script>
+    <script defer src="https://plausible.io/js/pa-0CKmc9UhJ1hfgfhMK6TFC.js"></script>
+    <script>
+      window.plausible = window.plausible || function () {
+        (window.plausible.q = window.plausible.q || []).push(arguments);
+      };
+    </script>
 
-    <!-- Open Graph / Social -->
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_ZA" />
     <meta property="og:url" content={Astro.url.href} />
     <meta property="og:title" content={`${title} — eKoneni Lounge`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content="/images/lounge/hero-fallback.jpg" />
+    <meta property="og:image" content={ogImage} />
     <meta property="og:site_name" content="eKoneni Lounge" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} — eKoneni Lounge`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content="/images/lounge/hero-fallback.jpg" />
+    <meta name="twitter:image" content={ogImage} />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -73,8 +78,6 @@ const siteUrl = "https://ekoneni-lounge.netlify.app";
     html {
       scroll-behavior: smooth;
     }
-
-    /* Optional: Better scroll offset for fixed navbar */
     html {
       scroll-padding-top: 80px;
     }

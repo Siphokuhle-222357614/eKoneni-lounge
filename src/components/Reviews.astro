@@ -1,12 +1,12 @@
 ---
 // src/components/Reviews.astro
 ---
-<section id="reviews" class="section-mid py-20 sm:py-28">
+<section id="reviews" class="section-mid py-16 sm:py-20">
   <div class="max-w-7xl mx-auto px-5 sm:px-8 lg:px-12">
 
     <!-- Header -->
-    <div class="text-center mb-14">
-      <div class="flex items-center justify-center gap-3 mb-5">
+    <div class="text-center mb-10">
+      <div class="flex items-center justify-center gap-3 mb-4">
         <span class="w-8 h-px bg-amber-400/40"></span>
         <span class="font-body text-amber-500 text-xs tracking-[0.25em] uppercase">What People Say</span>
         <span class="w-8 h-px bg-amber-400/40"></span>
@@ -16,8 +16,8 @@
         Real Stories.<br> 
         <span class="text-amber-400">Real Nights.</span>
       </h2>
-      <p class="font-body text-gray-400 mt-4 max-w-md mx-auto">
-        Hear from the people who keep coming back to eKoneni.
+      <p class="font-body text-gray-400 mt-3 max-w-md mx-auto">
+        Don’t just take our word for it — here’s what our guests have to say.
       </p>
     </div>
 
@@ -25,7 +25,7 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
       <!-- Testimonial 1 -->
-      <div class="contact-card card-lift rounded-2xl p-8">
+      <div class="contact-card card-lift rounded-2xl p-7">
         <div class="flex gap-1 mb-4 text-amber-400">
           ★★★★☆
         </div>
@@ -39,7 +39,7 @@
       </div>
 
       <!-- Testimonial 2 -->
-      <div class="contact-card card-lift rounded-2xl p-8">
+      <div class="contact-card card-lift rounded-2xl p-7">
         <div class="flex gap-1 mb-4 text-amber-400">
           ★★★★★
         </div>
@@ -53,7 +53,7 @@
       </div>
 
       <!-- Testimonial 3 -->
-      <div class="contact-card card-lift rounded-2xl p-8">
+      <div class="contact-card card-lift rounded-2xl p-7">
         <div class="flex gap-1 mb-4 text-amber-400">
           ★★★★☆
         </div>
@@ -67,7 +67,7 @@
       </div>
 
       <!-- Testimonial 4 -->
-      <div class="contact-card card-lift rounded-2xl p-8">
+      <div class="contact-card card-lift rounded-2xl p-7">
         <div class="flex gap-1 mb-4 text-amber-400">
           ★★★★★
         </div>
@@ -82,9 +82,10 @@
 
     </div>
 
-    <!-- CTA -->
-    <div class="text-center mt-12">
-      <a href="#contact" 
+    <!-- CTA Button -->
+    <div class="text-center mt-10">
+      <a href="/contact" 
+         onclick="prefillExperienceMessage()"
          class="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-amber-400/30 text-amber-300 hover:bg-amber-400/10 transition-colors text-sm font-body">
         Share your own experience →
       </a>
@@ -92,3 +93,16 @@
 
   </div>
 </section>
+
+<script>
+  function prefillExperienceMessage() {
+    // Wait a bit for the page to scroll to the contact section
+    setTimeout(() => {
+      const messageField = document.getElementById('message');
+      if (messageField) {
+        messageField.value = "I'd like to share my experience at eKoneni.";
+        messageField.focus();
+      }
+    }, 600); // Small delay so it feels natural
+  }
+</script>

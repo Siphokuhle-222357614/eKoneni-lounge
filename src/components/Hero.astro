@@ -1,85 +1,125 @@
----
-// src/components/Hero.astro
----
+<section id="home" class="relative overflow-hidden mb-12">
 
-<section
-  id="home"
-  class="relative overflow-hidden rounded-4xl mb-12
-         sm:h-screen sm:flex sm:items-center sm:justify-center"
->
-  <!-- Mobile Video -->
-  <div class="block sm:hidden w-full aspect-video">
-    <video
-      src="/video/eKoneni-Lounge-Background-video.mp4"
-      autoplay
-      muted
-      loop
-      playsinline
-      preload="metadata"
-      class="w-full h-full object-cover"
-    ></video>
-  </div>
+  <!-- Desktop: Split Layout -->
+  <div class="hidden lg:grid grid-cols-2 max-w-7xl mx-auto">
 
-  <!-- Desktop Video -->
-  <video
-    src="/video/eKoneni-Lounge-Background-video.mp4"
-    autoplay
-    muted
-    loop
-    playsinline
-    preload="metadata"
-    class="hidden sm:block absolute inset-0 w-full h-full object-cover z-0"
-    fetchpriority="high"
-  ></video>
-
-  <!-- Dark overlay -->
-  <div class="hidden sm:block absolute inset-0 bg-black/60 z-[1]"></div>
-
-  <!-- Content -->
-  <div class="relative z-10 max-w-4xl mx-auto text-center px-5">
-    
-    <!-- Brand -->
-    <h1 class="font-display font-bold text-white text-4xl xs:text-5xl sm:text-6xl md:text-6xl mb-3">
-      eKoneni Lounge
-    </h1>
-
-    <!-- Location tag -->
-    <div class="hero-tag inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/5 
-                px-3 py-1 mb-5">
-      <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
-      <span class="font-body text-amber-300/90 tracking-[0.2em] uppercase text-xs">
-        Mdantsane · East London · Est. 2019
-      </span>
+    <!-- Left: Video -->
+    <div class="relative w-full h-[92vh] overflow-hidden">
+      <video
+        src="/video/eKoneni-Lounge-Background-video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        class="absolute inset-0 w-full h-full object-cover"
+      ></video>
+      <div class="absolute inset-0 bg-black/50"></div>
     </div>
 
-    <!-- Headline -->
-    <h2 class="font-display font-black text-white leading-none mb-5">
-      <span class="block text-4xl xs:text-5xl sm:text-6xl md:text-6xl lg:text-6xl">
-        Where Mdantsane
-      </span>
-      <span class="block text-4xl xs:text-5xl sm:text-6xl md:text-6xl lg:text-6xl text-amber-400"
-            style="text-shadow: 0 0 80px rgba(251,191,36,0.4);">
-        Truly Comes Alive.
-      </span>
-    </h2>
+    <!-- Right: Text + Buttons -->
+    <div class="flex items-center px-10 lg:pl-16 bg-[#0d0a05]">
+      <div class="max-w-xl">
 
-    <!-- Subheadline -->
-    <p class="hero-sub font-body text-gray-300 max-w-2xl mx-auto leading-relaxed 
-              text-base sm:text-xl mb-8">
-      Premium amapiano nights, unforgettable energy, and a community that feels like family. 
-      Every weekend, eKoneni turns Mdantsane into the place to be.
-    </p>
+        <!-- Location Tag -->
+        <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-black/40 px-4 py-1.5 mb-6
+                    opacity-0 animate-[fadeSlide_0.6s_ease_forwards]">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span class="font-body text-amber-300 tracking-[0.2em] uppercase text-xs sm:text-sm">
+            Mdantsane · East London · Est. 2019
+          </span>
+        </div>
 
-    <!-- Buttons -->
-    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-      <a href="#contact" 
-         class="btn-gold rounded-full font-body tracking-wide px-8 py-3.5 text-sm sm:text-base w-full sm:w-auto text-center">
-        Reserve Your Table
-      </a>
-      <a href="#events" 
-         class="btn-outline rounded-full font-body tracking-wide px-8 py-3.5 text-sm sm:text-base w-full sm:w-auto text-center">
-        See Upcoming Events
-      </a>
+        <!-- Headline -->
+        <h1 class="font-display font-black text-white leading-none tracking-tighter mb-5
+                   opacity-0 animate-[fadeSlide_0.7s_ease_forwards_0.1s]">
+          <span class="block text-6xl">Where Mdantsane</span>
+          <span class="block text-6xl text-amber-400">Truly Comes Alive.</span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="font-body text-gray-300 text-xl max-w-md mb-9 leading-relaxed
+                  opacity-0 animate-[fadeSlide_0.7s_ease_forwards_0.3s]">
+          Premium amapiano nights, unforgettable energy, and a community that feels like family.
+        </p>
+
+        <!-- Buttons -->
+        <div class="flex gap-4 opacity-0 animate-[fadeSlide_0.7s_ease_forwards_0.5s]">
+          <a href="#contact" class="btn-gold px-9 py-3.5 rounded-full text-base font-medium tracking-wide">
+            Contact Us
+          </a>
+          <a href="#events" class="btn-outline px-9 py-3.5 rounded-full text-base font-medium tracking-wide">
+            See Upcoming Events
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Mobile: Improved Stacked Layout -->
+  <div class="block lg:hidden">
+
+    <!-- Mobile Video -->
+    <div class="w-full aspect-video relative">
+      <video
+        src="/video/eKoneni-Lounge-Background-video.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        class="w-full h-full object-cover"
+      ></video>
+      <div class="absolute inset-0 bg-black/55"></div>
+    </div>
+
+    <!-- Mobile Content -->
+    <div class="px-5 pt-8 pb-10">
+      
+      <!-- Location Tag -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/5 px-3 py-1 mb-5">
+        <span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span>
+        <span class="font-body text-amber-300/90 tracking-[0.2em] uppercase text-xs">
+          Mdantsane · East London · Est. 2019
+        </span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="font-display font-bold text-white text-4xl leading-tight mb-4">
+        Where Mdantsane <span class="text-amber-400">Truly Comes Alive.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="font-body text-gray-300 text-base mb-8 max-w-md">
+        Premium amapiano nights, unforgettable energy, and a community that feels like family.
+      </p>
+
+      <!-- Buttons -->
+      <div class="flex flex-col gap-3">
+        <a href="#contact" class="btn-gold w-full text-center px-8 py-3.5 rounded-full text-sm font-medium tracking-wide">
+          Contact Us
+        </a>
+        <a href="#events" class="btn-outline w-full text-center px-8 py-3.5 rounded-full text-sm font-medium tracking-wide">
+          See Upcoming Events
+        </a>
+      </div>
+
     </div>
   </div>
+
 </section>
+
+<style>
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

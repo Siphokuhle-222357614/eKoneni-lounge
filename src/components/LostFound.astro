@@ -112,12 +112,10 @@
 </section>
 
 <script>
-  // Helper to build the correct URL (remove any accidental "public/" prefix and encode spaces)
   function imageUrl(path) {
     return '/' + path.replace(/^public\//, '').replace(/ /g, '%20');
   }
 
-  // Hardcoded lost items – using your images from public/images/Lost and Found/
   const lostItems = [
     {
       id: 1,
@@ -170,13 +168,11 @@
     }
   ];
 
-  // Prevent form submission (static demo)
   document.getElementById('lost-form').addEventListener('submit', (e) => {
     e.preventDefault();
     alert('Thank you! Your lost item report has been submitted. We will contact you if it’s found. (Demo)');
   });
 
-  // Build clickable cards
   const listContainer = document.getElementById('lost-items-list');
 
   lostItems.forEach(item => {

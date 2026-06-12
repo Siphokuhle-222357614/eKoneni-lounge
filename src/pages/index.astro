@@ -1,7 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 
-// Sections (arranged for better flow)
+// Sections
 import Hero from '../components/Hero.astro';
 import About from '../components/About.astro';
 import Community from '../components/Community.astro';
@@ -12,13 +12,14 @@ import Contact from '../components/Contact.astro';
 ---
 
 <MainLayout title="Home">
+
   <!-- 1. Hero -->
   <Hero />
 
   <!-- 2. About -->
   <About />
 
-  <!-- 3. Community (moved up - strong emotional hook) -->
+  <!-- 3. Community -->
   <Community />
 
   <!-- 4. Events -->
@@ -27,9 +28,28 @@ import Contact from '../components/Contact.astro';
   <!-- 5. Gallery -->
   <Gallery />
 
-  <!-- 6. Reviews (moved down - social proof before contact) -->
+  <!-- 6. Reviews -->
   <Reviews />
 
-  <!-- 7. Contact -->
+  <!-- 7. Final CTA -->
+  <section class="section-mid py-12 sm:py-16 border-y border-amber-400/10">
+    <div class="max-w-3xl mx-auto px-5 text-center">
+      <h2 class="section-heading text-3xl sm:text-4xl text-white mb-4">
+        When You Celebrate at eKoneni,<br>
+        <span class="text-amber-400">You Support Mdantsane.</span>
+      </h2>
+      <p class="font-body text-gray-300 text-lg max-w-xl mx-auto mb-8">
+        Every night you spend with us helps feed children, rebuild homes, and uplift our community.<br>
+        Come for the vibe. Leave knowing you made a difference.
+      </p>
+      <a href="#contact" 
+         class="inline-flex items-center gap-2 px-9 py-3.5 rounded-full bg-amber-400 text-black font-medium tracking-wide text-sm hover:bg-amber-300 transition-all hover:scale-[1.02]">
+        Book or Make an Enquiry →
+      </a>
+    </div>
+  </section>
+
+  <!-- 8. Contact -->
   <Contact />
+
 </MainLayout>

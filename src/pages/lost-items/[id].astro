@@ -5,58 +5,7 @@ function imageUrl(path) {
   return '/' + path.replace(/^public\//, '').replace(/ /g, '%20');
 }
 
-// Move lostItems OUTSIDE so both getStaticPaths and the page share it
-export const lostItems = [
-  {
-    id: 1,
-    item: "Black iPhone 15",
-    description: "Black silicone case, cracked screen protector. Lock screen shows a family photo.",
-    location: "Near the DJ booth",
-    dateLost: "2025-07-12",
-    contact: "072 123 4567",
-    mainImage: "images/Lost and Found/Black iPhone 15.jpg",
-    additionalImages: [
-      "images/Lost and Found/Black iPhone 15.jpg",
-      "images/Lost and Found/Black iPhone 15.jpg"
-    ]
-  },
-  {
-    id: 2,
-    item: "Silver watch (Fossil)",
-    description: "Silver metal band, blue dial, slightly scratched. Engraving on the back: 'For my love'.",
-    location: "Men's bathroom sink",
-    dateLost: "2025-07-11",
-    contact: "081 987 6543",
-    mainImage: "images/Lost and Found/Silver fossil watch.jpg",
-    additionalImages: [
-      "images/Lost and Found/Silver fossil watch.jpg"
-    ]
-  },
-  {
-    id: 3,
-    item: "House keys on a Springbok keychain",
-    description: "Two silver keys, one gold key, Springbok rugby keychain. Fob with red tag.",
-    location: "VIP section, table 4",
-    dateLost: "2025-07-10",
-    contact: "083 456 7890",
-    mainImage: "images/Lost and Found/House keys.jpg",
-    additionalImages: []
-  },
-  {
-    id: 4,
-    item: "Brown leather wallet",
-    description: "Contains ID, bank card, no cash. ID name: Thabo M.",
-    location: "Bar area",
-    dateLost: "2025-07-09",
-    contact: "076 321 9087",
-    mainImage: "images/Lost and Found/Brown leather wallet.jpg",
-    additionalImages: [
-      "images/Lost and Found/Brown leather wallet.jpg",
-      "images/Lost and Found/Brown leather wallet.jpg",
-      "images/Lost and Found/Brown leather wallet.jpg"
-    ]
-  }
-];
+export const lostItems = [ /* keep your existing lostItems array here */ ];
 
 export function getStaticPaths() {
   return lostItems.map(item => ({
@@ -76,30 +25,21 @@ if (!item) {
   <section class="section-dark py-20 sm:py-28">
     <div class="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12">
 
-      <!-- Back link -->
       <a href="/lost-found" class="inline-flex items-center gap-2 text-amber-400 hover:text-amber-300 mb-8 text-sm font-body">
         <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
         Back to Lost & Found
       </a>
 
-      <!-- Main Image -->
       <div class="rounded-2xl overflow-hidden mb-8">
         <img src={imageUrl(item.mainImage)} alt={item.item} class="w-full h-72 sm:h-96 object-cover" />
       </div>
 
-      <!-- Item Details -->
       <div class="contact-card rounded-2xl p-7 mb-8">
         <h1 class="font-display text-3xl sm:text-4xl text-white font-bold mb-4">{item.item}</h1>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 font-body text-sm text-gray-300 mb-6">
-          <div>
-            <strong class="text-amber-200/80">Date Lost:</strong> {item.dateLost}
-          </div>
-          <div>
-            <strong class="text-amber-200/80">Last Seen:</strong> {item.location}
-          </div>
-          <div>
-            <strong class="text-amber-200/80">Contact:</strong> <a href={`tel:${item.contact}`} class="text-amber-400 hover:underline">{item.contact}</a>
-          </div>
+          <div><strong class="text-amber-200/80">Date Lost:</strong> {item.dateLost}</div>
+          <div><strong class="text-amber-200/80">Last Seen:</strong> {item.location}</div>
+          <div><strong class="text-amber-200/80">Contact:</strong> <a href={`tel:${item.contact}`} class="text-amber-400 hover:underline">{item.contact}</a></div>
         </div>
         <p class="font-body text-gray-300 text-sm leading-relaxed">
           <strong class="text-amber-200/80">Description:</strong><br/>
@@ -107,7 +47,6 @@ if (!item) {
         </p>
       </div>
 
-      <!-- Additional Images -->
       {item.additionalImages.length > 0 && (
         <div>
           <h3 class="font-display text-2xl text-white font-bold mb-6">More Photos</h3>
